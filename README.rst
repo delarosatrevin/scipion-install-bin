@@ -7,6 +7,9 @@ This repository hosts Xmipp pre-built binaries used for Scipion installation.
 Building Xmipp binaries (on CentOS 7.9)
 ---------------------------------------
 The Scipion installation script from 
+
+https://github.com/delarosatrevin/scipion-install
+
 is used to generate a basic conda environment very similar to the Scipion one. This conda environment is then
 used to compile Xmipp from sources and generate the binaries. In this conda environment, just some 
 problematic libraries are avoided, such as HDF5, that is used from the system.
