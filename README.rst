@@ -25,7 +25,7 @@ Installing compiler and other dependencies:
     yum install centos-release-scl
     yum install devtoolset-11-gcc devtoolset-11-gcc-c++
     # Install openmpi 4.1.14 from source in /usr/local/opempi/4.1.14  
-    yum install hdf5 hdf5-devel (version 1.8.12)
+    # Download hdf5 binaries (version 1.12.1) for CentOS 7 from https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.12/hdf5-1.12.1/bin/unix/    
 
 
 Installing conda environment (pseudo-Scipion):
@@ -55,14 +55,17 @@ Building Xmipp binary
 
     ./xmipp get_devel_sources master
     ./xmipp get_dependencies master
-    ./xmipp config noAsk
+    ./xmipp config  # provide hdf5-1.12.1 folder lib
     ./xmipp check_config
-     # Disable OPENCV in xmipp.conf
+     # Disable OPENCV and CUDA in xmipp.conf
+     # Include -L and -I to hdf5 lib and include folders if necessary
+      
      ./xmipp compile 8
      ./xmipp install
 
      # If everything works fine, a *build* directory should be created
      # Let's create a tar file from it
+     # copy all from hdf5/lib to build
      tar -cvzf xmipp-v3.23.07-b01.tgz build
 
 
